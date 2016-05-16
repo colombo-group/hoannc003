@@ -1,0 +1,83 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Bài tập 2</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		var time;
+		var m = 0;
+		var s = 0;
+		var ms = 0;
+		function run(){
+			if(ms == 9){
+				if(s == 59){
+					m++;
+					s = 0;
+					ms = 0;
+				}else{
+					s++;
+					ms = 0;
+				}
+			}else{
+				ms++;
+			}
+			if(m < 10){
+				document.getElementById("minute").innerHTML = '0' + m;
+			}else{
+				document.getElementById("minute").innerHTML = m;
+			}
+
+			if(s < 10){
+				document.getElementById("second").innerHTML = '0' + s;
+			}else{
+				document.getElementById("second").innerHTML = s;
+			}
+			document.getElementById("msecond").innerHTML = ms;	
+		}
+
+		function start(){
+			var ms = 0;
+			time = setInterval(function(){
+		    	run()	
+			}, 100);
+			document.getElementById('start').disabled = true;
+			document.getElementById('pause').disabled = false;
+		}
+
+		function pause(){
+			clearInterval(time);	
+			document.getElementById('start').disabled = false;
+			document.getElementById('start').value = 'Tiếp tục';
+			document.getElementById('pause').disabled = true;
+		}
+
+		function reset(){
+			clearInterval(time);
+			m = 0;
+			s = 0;
+			ms = 0;
+			document.getElementById("minute").innerHTML = '0' + m;
+			document.getElementById("second").innerHTML = '0' + s;
+			document.getElementById("msecond").innerHTML = ms;
+			document.getElementById('start').disabled = false;
+			document.getElementById('start').value = 'Bắt đầu';
+			document.getElementById('pause').disabled = true;
+		}
+		var body = '<h1>Bài 3: Đồng hồ thể thao bấm giây</h1>'
+			+ '<div id = "bai3">'
+			+ '<div style = "font-size: 70px; font-size: bold;">'
+			+	'<span id="minute">00</span>'
+			+	'<span>:</span>'
+			+	'<span id="second">00</span>'
+			+	'<span>.</span>'
+			+	'<span id="msecond">0</span><br>'
+			+'<input type = "button" id = "start" value = "Bắt đầu" onclick = "start()">'
+			+'<input type = "button" id = "pause" value = "Dừng lại" onclick = "pause()">'
+			+ '<input type = "button" value = "Reset" onclick = "reset()">'
+			+ '</div>'
+		+'</div>';
+		document.write(body);
+		</script>
+	</body>
+</html>
