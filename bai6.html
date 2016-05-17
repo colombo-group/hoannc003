@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Bài tập 2</title>
+		<title>Bài tập 6</title>
 	</head>
 	<body>
 		<script type="text/javascript">
@@ -9,17 +9,19 @@
 			var v1 = document.getElementById('value1').value;
 			var v2 = document.getElementById('value2').value;
 			if(isNaN(v1) == false && isNaN(v2) == false){
-				var result = eval(v1 + a + v2);
-				document.getElementById('result').value = result;
+				document.getElementById('result').value = eval(v1 + a + v2);
 			}else{
-				alert('Nhập vào là số !')
+				alert('Bạn đã nhập sai ! Vui lòng nhập lại !');
 			}
-			
 		}
 		function power(){
 			var v1 = document.getElementById('value1').value;
 			var v2 = document.getElementById('value2').value;
-			document.getElementById("result").value = Math.pow(v1, v2);
+			if(isNaN(v1) == false && isNaN(v2) == false){
+				document.getElementById("result").value = Math.pow(v1, v2);
+			}else{
+				alert('Bạn đã nhập sai ! Vui lòng nhập lại !');
+			}
 		}
 		var body = '<h1> Bài 6: Máy tính điện tử </h1>'
 			+ '<div id = "bai6">'
@@ -30,7 +32,7 @@
 			+' <input type = "button" value = "/" onclick = '+'calculator("/")'+'>'
 			+' <input type = "button" value = "^" onclick = "power()">'
 			+' <input type = "text" id = "value2" placeholder="Giá trị 2">='
-			+' <input type = "text" id = "result" placeholder="Kết quả">'
+			+' <input type = "text" readonly id = "result" placeholder="Kết quả">'
 		+ '</div>';
 		document.write(body);
 		</script>

@@ -9,7 +9,7 @@
 		function input(){
 			var count = prompt("Số lượng giá trị trong đồ thị bạn muốn hiển thị: ", '');
 			var listInput = "";
-			while(count <= 0 || isNaN(count) == true){
+			while(count <= 0 || isNaN(count) == true || count % 1 != 0){
 				alert("Bạn đã nhập sai ! Vui lòng nhập lại !");
 				count = prompt("Số lượng giá trị trong đồ thị bạn muốn hiển thị: ", '');
 			}
@@ -39,7 +39,6 @@
 			for (i = 0; i < number; i++){
 				name = "name"+i;
 				x = document.getElementById(name).value;
-			
 				row += 		'<tr>'
 					+			'<td>'+listName[i]+'</td>'	
 					+			'<td style = "width:150px">'
